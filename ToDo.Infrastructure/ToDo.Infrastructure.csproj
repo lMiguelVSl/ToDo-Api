@@ -15,7 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Repositories\Custom\" />
+      <Folder Include="Repositories\Custom\Implementations\" />
     </ItemGroup>
 
 </Project>

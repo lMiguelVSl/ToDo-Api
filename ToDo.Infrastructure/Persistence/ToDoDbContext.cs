@@ -5,5 +5,5 @@ namespace ToDo.Infrastructure.Persistence;
 
 public class ToDoDbContext(DbContextOptions<ToDoDbContext> options) : DbContext(options)
 {
-    public DbSet<Models.ToDo> ToDos { get; set; }
+    public required DbSet<Models.ToDo> ToDos { get; set; }
 }   

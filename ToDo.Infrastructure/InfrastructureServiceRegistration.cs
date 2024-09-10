@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ToDo.Core.Persistence;
 using ToDo.Infrastructure.Persistence;
 using ToDo.Infrastructure.Repositories;
+using ToDo.Infrastructure.Repositories.Base;
 
 namespace ToDo.Infrastructure;
 
