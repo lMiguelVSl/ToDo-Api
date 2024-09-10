@@ -20,7 +20,6 @@ public class ToDosController : ControllerBase
         return CreatedAtAction(nameof(Get), new Models.ToDo());
     }
 
-    // PUT: api/v1/ToDos/5
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, [FromBody] Models.ToDo todo)
     {
