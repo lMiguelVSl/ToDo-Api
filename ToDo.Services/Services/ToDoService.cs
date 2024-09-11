@@ -19,16 +19,22 @@ public class ToDoService(IToDoRepository toDoRepository, IMapper mapper) : IToDo
 
     public async Task<ToDoResponse> Update(ToDoRequest toDo)
     {
-        var updateRequest = mapper.Map<ToDoModel>(toDo);
-        return mapper.Map<ToDoResponse>(await toDoRepository.UpdateAsync(updateRequest));
+        var taskToUpdate = await ValidateRequest(toDo.Id);
+        return mapper.Map<ToDoResponse>(await toDoRepository.UpdateAsync(taskToUpdate));
     }
 
     public async Task<string> Delete(int taskId)
     {
-        var taskToDelete = await toDoRepository.GetById(taskId);
-        if (taskToDelete == null) throw new Exception("The task does not exist");
+        var taskToDelete = await ValidateRequest(taskId);
         
         var value = await toDoRepository.DeleteAsync(taskToDelete);
         return value > 0 ? $"Delete Success: {value}" : throw new Exception("The car could not be added");
+    }
+
+    private async Task<ToDoModel> ValidateRequest(int taskId)
+    {
+        var taskToDelete = await toDoRepository.GetById(taskId);
+        if (taskToDelete == null) throw new Exception("The task does not exist");
+        return taskToDelete;
     }
 }
