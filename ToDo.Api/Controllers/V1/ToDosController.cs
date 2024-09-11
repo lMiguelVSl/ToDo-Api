@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using Models = ToDo.Core.Models;
+using ToDo.Core.Models.Requests;
+using ToDo.Services.Interfaces;
+using Entities_ToDo = ToDo.Core.Entities.ToDo;
 
 namespace ToDo.Api.Controllers.V1;
 
@@ -8,27 +10,32 @@ namespace ToDo.Api.Controllers.V1;
 public class ToDosController : ControllerBase
 {
     [HttpGet]
-    public async Task<IActionResult> Get()
+    public async Task<IActionResult> Get([FromServices] IToDoService toDoService)
     {
-        return Ok();
+        return Ok(await toDoService.GetAll());
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody] Models.ToDo todo)
+    public async Task<IActionResult> Post([FromServices] IToDoService toDoService, [FromBody] ToDoRequest todo)
     {
-        //todo: add return from service
-        return CreatedAtAction(nameof(Get), new Models.ToDo());
+        return CreatedAtAction(nameof(Post), await toDoService.Create(todo));
     }
 
-    [HttpPut("{id}")]
-    public async Task<IActionResult> Put(int id, [FromBody] Models.ToDo todo)
+    [HttpPut]
+    public async Task<IActionResult> Put([FromServices] IToDoService toDoService, [FromBody] ToDoRequest todo)
     {
-        return Ok(true);
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        
+        return Ok(await toDoService.Update(todo));
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> Delete(int id)
+    public async Task<IActionResult> Delete([FromServices] IToDoService toDoService, [FromRoute] int taskId)
     {
+        var test = await toDoService.Delete(taskId);
         return Ok(true);
     }
 }

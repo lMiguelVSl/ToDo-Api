@@ -10,3 +10,4 @@
 /Users/miguelvargas/Desktop/Development/03 - Full Apps/ToDo-Api/ToDo.Core/obj/Debug/net8.0/refint/ToDo.Core.dll
 /Users/miguelvargas/Desktop/Development/03 - Full Apps/ToDo-Api/ToDo.Core/obj/Debug/net8.0/ToDo.Core.pdb
 /Users/miguelvargas/Desktop/Development/03 - Full Apps/ToDo-Api/ToDo.Core/obj/Debug/net8.0/ref/ToDo.Core.dll
+/Users/miguelvargas/Desktop/Development/03 - Full Apps/ToDo-Api/ToDo.Core/obj/Debug/net8.0/ToDo.Core.csproj.AssemblyReference.cache

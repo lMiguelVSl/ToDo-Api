@@ -7,8 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Interfaces\" />
-      <Folder Include="Services\" />
+      <ProjectReference Include="..\ToDo.Core\ToDo.Core.csproj" />
+      <ProjectReference Include="..\ToDo.Infrastructure\ToDo.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="13.0.1" />
     </ItemGroup>
 
 </Project>

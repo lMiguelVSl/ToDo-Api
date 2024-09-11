@@ -14,3 +14,5 @@
 /Users/miguelvargas/Desktop/Development/03 - Full Apps/ToDo-Api/ToDo.Infrastructure/obj/Debug/net8.0/refint/ToDo.Infrastructure.dll
 /Users/miguelvargas/Desktop/Development/03 - Full Apps/ToDo-Api/ToDo.Infrastructure/obj/Debug/net8.0/ToDo.Infrastructure.pdb
 /Users/miguelvargas/Desktop/Development/03 - Full Apps/ToDo-Api/ToDo.Infrastructure/obj/Debug/net8.0/ref/ToDo.Infrastructure.dll
+/Users/miguelvargas/Desktop/Development/03 - Full Apps/ToDo-Api/ToDo.Infrastructure/bin/Debug/net8.0/ToDo.Infrastructure.runtimeconfig.json
+/Users/miguelvargas/Desktop/Development/03 - Full Apps/ToDo-Api/ToDo.Infrastructure/obj/Debug/net8.0/ToDo.Infrastructure.genruntimeconfig.cache

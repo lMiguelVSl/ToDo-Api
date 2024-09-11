@@ -1,9 +1,14 @@
 using Microsoft.EntityFrameworkCore;
-using Models = ToDo.Core.Models;
+using Entities_ToDo = ToDo.Core.Entities.ToDo;
 
 namespace ToDo.Infrastructure.Persistence;
 
-public class ToDoDbContext(DbContextOptions<ToDoDbContext> options) : DbContext(options)
+public class ToDoDbContext: DbContext
 {
-    public required DbSet<Models.ToDo> ToDos { get; set; }
-}   
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseSqlServer("Server=localhost;Database=ToDoApp;user id=SA;password=MyStrongPass123;encrypt=False");
+    }
+    
+    public DbSet<Entities_ToDo>? ToDos { get; set; }
+}

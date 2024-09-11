@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Enities\" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
     </ItemGroup>
 
 </Project>
