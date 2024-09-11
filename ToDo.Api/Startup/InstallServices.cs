@@ -8,7 +8,7 @@ public static class InstallServices
 {
     public static IServiceCollection AddApplicationServices(this  IServiceCollection services)
     {
-        services.AddAutoMapper(Assembly.GetExecutingAssembly());
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         services.AddScoped<IToDoService, ToDoService>();
         
         return services;

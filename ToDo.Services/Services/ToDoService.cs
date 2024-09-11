@@ -9,7 +9,7 @@ namespace ToDo.Services.Services;
 
 public class ToDoService(IToDoRepository toDoRepository, IMapper mapper) : IToDoService
 {
-    public async Task<ToDoResponse> Create(ToDoRequest toDo)
+    public async Task<ToDoResponse> Create(ToDoCreateRequest toDo)
     {
         var createRequest = mapper.Map<ToDoModel>(toDo);
         return mapper.Map<ToDoResponse>(await toDoRepository.AddAsync(createRequest));
@@ -20,13 +20,14 @@ public class ToDoService(IToDoRepository toDoRepository, IMapper mapper) : IToDo
     public async Task<ToDoResponse> Update(ToDoRequest toDo)
     {
         var taskToUpdate = await ValidateRequest(toDo.Id);
+        taskToUpdate.IsDone = toDo.IsDone;
+        taskToUpdate.Title = toDo.Title;
         return mapper.Map<ToDoResponse>(await toDoRepository.UpdateAsync(taskToUpdate));
     }
 
     public async Task<string> Delete(int taskId)
     {
         var taskToDelete = await ValidateRequest(taskId);
-        
         var value = await toDoRepository.DeleteAsync(taskToDelete);
         return value > 0 ? $"Delete Success: {value}" : throw new Exception("The car could not be added");
     }

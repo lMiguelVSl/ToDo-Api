@@ -11,7 +11,7 @@ public interface IToDoService
     /// </summary>
     /// <param name="task"></param>
     /// <returns>Returns the To-Do created</returns>
-    Task<ToDoResponse> Create(ToDoRequest task);
+    Task<ToDoResponse> Create(ToDoCreateRequest task);
     /// <summary>
     /// Get All To-Do
     /// </summary>

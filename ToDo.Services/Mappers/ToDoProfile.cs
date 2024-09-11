@@ -11,5 +11,7 @@ public class ToDoProfile: Profile
     {
         CreateMap<ToDoRequest, Core.Entities.ToDo>().ReverseMap();
         CreateMap<ToDoResponse, Core.Entities.ToDo>().ReverseMap();
+        CreateMap<ToDoBase, Core.Entities.ToDo>().ReverseMap();
+        CreateMap<ToDoCreateRequest, Core.Entities.ToDo>().ForMember(x => x.Id, opt => opt.Ignore()).ReverseMap();
     }
 }
