@@ -26,7 +26,7 @@ public class RepositoryBase<T>(ToDoDbContext context): IAsyncRepository<T> where
     
     public async Task<T?> GetById(int taskId)
     {
-        return await context.Set<T>().FirstOrDefaultAsync();
+        return await context.Set<T>().FindAsync(taskId);
     }
 
     public async Task<T> UpdateAsync(T entity)

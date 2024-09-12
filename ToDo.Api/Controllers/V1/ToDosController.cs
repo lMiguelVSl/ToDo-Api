@@ -18,6 +18,11 @@ public class ToDosController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post([FromServices] IToDoService toDoService, [FromBody] ToDoCreateRequest todo)
     {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        
         return CreatedAtAction(nameof(Post), await toDoService.Create(todo));
     }
 
@@ -32,8 +37,8 @@ public class ToDosController : ControllerBase
         return Ok(await toDoService.Update(todo));
     }
 
-    [HttpDelete("{taskId}")]
-    public async Task<IActionResult> Delete([FromServices] IToDoService toDoService, [FromRoute] int taskId)
+    [HttpDelete]
+    public async Task<IActionResult> Delete([FromServices] IToDoService toDoService, [FromQuery] int taskId)
     {
         var test = await toDoService.Delete(taskId);
         return Ok(true);

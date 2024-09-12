@@ -15,6 +15,7 @@ public static class InfrastructureServiceRegistration
         services.AddDbContext<ToDoDbContext>();
         services.AddScoped(typeof(IAsyncRepository<>), typeof(RepositoryBase<>));
         services.AddScoped<IToDoRepository, ToDoRepository>();
+        services.AddScoped<IAuthenticationRepository, AuthenticationRepository>();
 
         return services;
     }

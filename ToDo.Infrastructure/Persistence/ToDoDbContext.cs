@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using ToDo.Core.Entities;
 using Entities_ToDo = ToDo.Core.Entities.ToDo;
 
 namespace ToDo.Infrastructure.Persistence;
@@ -11,4 +12,5 @@ public class ToDoDbContext: DbContext
     }
     
     public DbSet<Entities_ToDo>? ToDos { get; set; }
+    public DbSet<Authentication>? Authentications { get; set; }
 }

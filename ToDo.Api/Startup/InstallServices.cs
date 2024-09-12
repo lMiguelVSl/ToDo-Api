@@ -10,6 +10,7 @@ public static class InstallServices
     {
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         services.AddScoped<IToDoService, ToDoService>();
+        services.AddScoped<IAuthenticationService, AuthenticationService>();
         
         return services;
     }
