@@ -10,4 +10,10 @@ public interface IAuthenticationService
     /// <param name="request"></param>
     /// <returns>token value as string</returns>
     Task<string> CreateToken(AuthenticationRequest request);
+
+    /// <summary>
+    /// Get User Views allowed
+    /// </summary>
+    /// <returns></returns>
+    Task<IList<string>> GetUserViews();
 }

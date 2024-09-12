@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ToDo.Core.Models.Requests;
 using ToDo.Services.Interfaces;
@@ -5,6 +6,7 @@ using Entities_ToDo = ToDo.Core.Entities.ToDo;
 
 namespace ToDo.Api.Controllers.V1;
 
+[Authorize]
 [ApiController]
 [Route("api/v1/[controller]")]
 public class ToDosController : ControllerBase
