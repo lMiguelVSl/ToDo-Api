@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "RrptPX/NkTYSUTojlldFNgfTzdgluWGcrjfMUmVNrbEPuj15se+bx70IRhg8GzZhVl2jUgSLiP2syz8a3jg6KA==",
+  "success": true,
+  "projectFilePath": "/Users/miguelvargas/Desktop/Development/03 - Full Apps/ToDo-Api/ToDo.Services.Tests/ToDo.Services.Tests.csproj",
+  "expectedPackageFiles": [
+    "/Users/miguelvargas/.nuget/packages/nunit/4.2.2/nunit.4.2.2.nupkg.sha512",
+    "/Users/miguelvargas/.nuget/packages/nunit3testadapter/4.6.0/nunit3testadapter.4.6.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -42,7 +42,6 @@ public class ToDosController : ControllerBase
     [HttpDelete]
     public async Task<IActionResult> Delete([FromServices] IToDoService toDoService, [FromQuery] int taskId)
     {
-        var test = await toDoService.Delete(taskId);
-        return Ok(true);
+        return Ok(await toDoService.Delete(taskId));
     }
 }
