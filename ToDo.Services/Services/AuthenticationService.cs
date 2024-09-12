@@ -16,6 +16,8 @@ public class AuthenticationService(IAuthenticationRepository authenticationRepos
     : IAuthenticationService
 {
     private readonly string _secretKey = configuration["Jwt:SecretKey"] ?? throw new InvalidOperationException();
+    private readonly string _issuer = configuration["Jwt:Issuer"] ?? throw new InvalidOperationException();
+    private readonly string _audience = configuration["Jwt:Audience"] ?? throw new InvalidOperationException();
 
     public async Task<string> CreateToken(AuthenticationRequest request)
     {
@@ -31,7 +33,7 @@ public class AuthenticationService(IAuthenticationRepository authenticationRepos
         return new[] { "/Home", "/", "/", "/" };
     }
 
-    private static string CreateJwtToken(string userName, string secretKey)
+    private string CreateJwtToken(string userName, string secretKey)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
         using var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(secretKey));
@@ -40,9 +42,11 @@ public class AuthenticationService(IAuthenticationRepository authenticationRepos
             Subject = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, userName) }),
             Expires = DateTime.UtcNow.AddMinutes(10),
             SigningCredentials = new SigningCredentials(
-                new SymmetricSecurityKey(hmac.Key), // Automatically handles key length
+                new SymmetricSecurityKey(hmac.Key),
                 SecurityAlgorithms.HmacSha256Signature
-            )
+            ),
+            Issuer = _issuer,
+            Audience = _audience
         };
 
         var token = tokenHandler.CreateToken(tokenDescriptor);

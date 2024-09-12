@@ -1,10 +1,8 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using ToDo.Api.Startup;
 using ToDo.Infrastructure;
-using ToDo.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 var secretKey = builder.Configuration["Jwt:SecretKey"] ?? throw new InvalidOperationException();
